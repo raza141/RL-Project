@@ -13,3 +13,5 @@ __pycache__/
 .py310-venv/pyvenv.cfg
 /Py310-venv
 /FinRL
+/.test.ipynb
+Crypto/test.ipynb
