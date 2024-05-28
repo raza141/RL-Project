@@ -15,3 +15,6 @@ __pycache__/
 /FinRL
 /.test.ipynb
 Crypto/test.ipynb
+Crypto/config.json
+Crypto/exchange_data_fetcher.log
+Crypto/exchange_data_fetcher
