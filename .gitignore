@@ -12,3 +12,4 @@ __pycache__/
 .py310-venv/Include
 .py310-venv/pyvenv.cfg
 /Py310-venv
+/FinRL
