@@ -6,7 +6,7 @@ __pycache__/
 .DS_Store
 .py310-venv
 .FinRL
-.py310-venv/
+/py310-venv/
 .py310-venv/Lib
 .py310-venv/Scripts
 .py310-venv/Include
