@@ -7,3 +7,7 @@ __pycache__/
 .py310-venv
 .FinRL
 .py310-venv/
+.py310-venv/Lib
+.py310-venv/Scripts
+.py310-venv/Include
+.py310-venv/pyvenv.cfg
