@@ -5,5 +5,21 @@
 - Discrete Features need to be encoded using one-hot encoding before feeding, current holding(long, short no position into (e.g., [1, 0, 0]), short (e.g., [0, 1, 0]), or no position (e.g., [0, 0, 1]).
 - *Feature Selection:* Analyze the importance of each feature. Irrelevant features can increase the state space size without adding value, making learning computationally expensive.
 - *Normalization/Scaling:* Ensure all features are on a similar scale to prevent bias towards features with larger ranges.
+  - StandardScaler: StandardScaler is used when data distribution is bell-curve (e.g. Stock Return)
+  - MinMaxScaler: Is used when data distribution is not follow the bell-curve (e.g. Stock price distribution)
+- Feature Engineering:
+  - Alpha Signal 
+  - Beta Signal
+  - TA Indicator addtion
+- State Space:
+  - Balance
+  - Holding
+  - Alpha, Beta Signal
+  - OHLCV
+  - Index
+- Action Space:
+  - Buy, Sell, Hold
+  - Short/Long
+  - Portfolio Weightes
 - FRED API will be used to fetch the interest rate data. Which will further preprocess. [FRED Link](https://fredaccount.stlouisfed.org/apikey)
 - Micro FlowChart for Project flow [Miro Chart](https://miro.com/app/board/uXjVKH21GtA=/)
