@@ -6,11 +6,11 @@
 - *Feature Selection:* Analyze the importance of each feature. Irrelevant features can increase the state space size without adding value, making learning computationally expensive.
 - *Normalization/Scaling:* Ensure all features are on a similar scale to prevent bias towards features with larger ranges.
   - StandardScaler: StandardScaler is used when data distribution is bell-curve (e.g. Stock Return)
-  - MinMaxScaler: Is used when data distribution is not follow the bell-curve (e.g. Stock price distribution)
+  - MinMaxScaler: Is used when the data distribution does not follow the bell curve (e.g. Stock price distribution)
 - Feature Engineering:
   - Alpha Signal 
   - Beta Signal
-  - TA Indicator addtion
+  - TA Indicator addition
 - State Space:
   - Balance
   - Holding
@@ -20,6 +20,9 @@
 - Action Space:
   - Buy, Sell, Hold
   - Short/Long
-  - Portfolio Weightes
-- FRED API will be used to fetch the interest rate data. Which will further preprocess. [FRED Link](https://fredaccount.stlouisfed.org/apikey)
+  - Portfolio Weights
+- FRED API will be used to fetch the interest rate data, which will further preprocess. [FRED Link](https://fredaccount.stlouisfed.org/apikey)
 - Micro FlowChart for Project flow [Miro Chart](https://miro.com/app/board/uXjVKH21GtA=/)
+- To enhance the state Space, we will use the momentum single and mean-reversion single
+  - In the Strategy folder, we have added the hqm.py file that finds the high-quality momentum stock out of given stocks
+  - Then, we choose the stock that has high-quality momentum. 
