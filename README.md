@@ -25,4 +25,4 @@
 - Micro FlowChart for Project flow [Miro Chart](https://miro.com/app/board/uXjVKH21GtA=/)
 - To enhance the state Space, we will use the momentum single and mean-reversion single
   - In the Strategy folder, we have added the hqm.py file that finds the high-quality momentum stock out of given stocks
-  - Then, we choose the stock that has high-quality momentum. 
+  - Then, we choose the stock that has high-quality momentum.
