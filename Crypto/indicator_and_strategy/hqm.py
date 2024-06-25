@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 from dataclasses import dataclass
 import datetime as dt 
+import yfinance as yf
+
 
 @dataclass
 class HQM:
