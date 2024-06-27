@@ -26,3 +26,10 @@
 - To enhance the state Space, we will use the momentum single and mean-reversion single
   - In the Strategy folder, we have added the hqm.py file that finds the high-quality momentum stock out of given stocks
   - Then, we choose the stock that has high-quality momentum.
+
+- Non-magic attributes available in FinRL package
+  - ['annotations', 'config', 'config_tickers', 'meta', 'test', 'trade', 'train']
+  - Callable attributes: ['test', 'trade', 'train']
+  - Class modules: ['annotations', 'config', 'config_tickers', 'meta']
+  - Value of 'meta': <module 'finrl.meta' from 'd:\\RL-Project\\Py310-venv\\lib\\site-packages\\finrl\\meta\\__init__.py'>
+  
