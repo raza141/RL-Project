@@ -7,6 +7,10 @@ class Indicator:
     dataset: pd.DataFrame
     window: int = 14
 
+    @property
+    # adding property decorator to return the values of the function as a property of the class object 
+    # we can use it as if it was a normal attribute of the class object
+    # (eg: obj.sma = 10)
     def rsi(self):
         """Calculate the Relative Strength Index (RSI) using the talib library."""
         try:
@@ -14,7 +18,8 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating RSI: {e}")
             return pd.Series(dtype='float64')
-
+        
+    @property
     def macd(self):
         """Calculate the Moving Average Convergence Divergence (MACD) using the talib library."""
         try:
@@ -24,6 +29,7 @@ class Indicator:
             print(f"Error calculating MACD: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def ema(self):
         """Calculate the Exponential Moving Average (EMA) using the talib library."""
         try:
@@ -31,7 +37,7 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating EMA: {e}")
             return pd.Series(dtype='float64')
-
+    @property
     def sma(self):
         """Calculate the Simple Moving Average (SMA) using the talib library."""
         try:
@@ -39,7 +45,7 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating SMA: {e}")
             return pd.Series(dtype='float64')
-
+    @property
     def bollinger_bands(self):
         """Calculate the Bollinger Bands using the talib library.
         
@@ -52,7 +58,7 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating Bollinger Bands: {e}")
             return pd.DataFrame()
-
+    @property
     def adx(self):
         """Calculate the Average Directional Index (ADX) using the talib library.
         
@@ -64,7 +70,7 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating ADX: {e}")
             return pd.Series(dtype='float64')
-
+    @property
     def cci(self):
         """Calculate the Commodity Channel Index (CCI) using the talib library."""
         try:
@@ -72,7 +78,7 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating CCI: {e}")
             return pd.Series(dtype='float64')
-
+    @property
     def atr(self):
         """Calculate the Average True Range (ATR) using the talib library.
         
@@ -85,6 +91,7 @@ class Indicator:
             print(f"Error calculating ATR: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def roc(self):
         """Calculate the Rate of Change (ROC) using the talib library."""
         try:
@@ -93,6 +100,7 @@ class Indicator:
             print(f"Error calculating ROC: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def stoch(self):
         """Calculate the Stochastic Oscillator using the talib library.
         
@@ -106,6 +114,7 @@ class Indicator:
             print(f"Error calculating Stochastic Oscillator: {e}")
             return pd.DataFrame()
 
+    @property
     def williams(self):
         """Calculate the Williams %R using the talib library."""
         try:
@@ -113,7 +122,8 @@ class Indicator:
         except Exception as e:
             print(f"Error calculating Williams %R: {e}")
             return pd.Series(dtype='float64')
-
+    
+    @property
     def obv(self):
         """Calculate the On Balance Volume (OBV) using the talib library."""
         try:
@@ -122,6 +132,7 @@ class Indicator:
             print(f"Error calculating OBV: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def momentum(self):
         """Calculate the Momentum using the talib library."""
         try:
@@ -130,6 +141,7 @@ class Indicator:
             print(f"Error calculating Momentum: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def donchian(self):
         """Calculate the Donchian Channel using the talib library."""
         try:
@@ -138,6 +150,7 @@ class Indicator:
             print(f"Error calculating Donchian Channel: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def aroon(self):
         """Calculate the Aroon indicator using the talib library."""
         try:
@@ -147,6 +160,7 @@ class Indicator:
             print(f"Error calculating Aroon: {e}")
             return pd.DataFrame()
 
+    @property
     def adix(self):
         """Calculate the Average Directional Index Rating (ADXR) using the talib library."""
         try:
@@ -155,6 +169,7 @@ class Indicator:
             print(f"Error calculating ADXR: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def cmo(self):
         """Calculate the Chande Momentum Oscillator (CMO) using the talib library."""
         try:
@@ -163,6 +178,7 @@ class Indicator:
             print(f"Error calculating CMO: {e}")
             return pd.Series(dtype='float64')
 
+    @property
     def trix(self):
         """Calculate the TRIX indicator using the talib library."""
         try:

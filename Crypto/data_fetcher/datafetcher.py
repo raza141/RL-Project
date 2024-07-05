@@ -7,13 +7,28 @@ import yfinance as yf
 
 
 class DataFetcher(ABC):
+    """
+    This class is used to fetch data from different data sources(e.g. binance, yfinance).
+
+    Args:
+        config_file_path (Path): The path to the config file(config.json). If not provided, the current working directory is used.
+
+    Attributes:
+        config (dict): The loaded config file.
+
+    Methods:
+        fetch_data(self):
+    """
+
+
+
     def __init__(self, config_file_path: Path = None):
         self.setup_logging()
         if config_file_path is None:
             self.config_file: Path = Path.cwd() / 'config.json' 
         else: 
             self.config_file = config_file_path
-        self.config = self.load_config()
+        self.config = self._load_config()
 
     def setup_logging(self):
         logging.basicConfig(level=logging.INFO,
@@ -22,7 +37,7 @@ class DataFetcher(ABC):
                                       logging.StreamHandler()])
         self.logger = logging.getLogger()
 
-    def load_config(self):
+    def _load_config(self):
         with open(self.config_file, 'r') as f:
             config = json.load(f)
         return config
@@ -110,6 +125,18 @@ class BinanceStreamer(DataFetcher):
 
 
 def data_fetcher_factory(source: str, config_file_path: Path = None):
+    """
+    Function that creates and returns a data fetcher based on the input source and configuration file path.
+
+    Parameters:
+    source (str): The source of the data fetcher(e.g. binance, yfinance).
+    config_file_path (Path, optional): The path to the configuration file. Defaults to None.
+
+    Returns:
+    DataFetcher: An instance of the appropriate data fetcher based on the input source and configuration file path.
+    Raises:
+    ValueError: If the data source is unknown.
+    """
     if source == 'yfinance':
         return YFinanceFetcher(source, config_file_path)
     elif source in ccxt.exchanges:
