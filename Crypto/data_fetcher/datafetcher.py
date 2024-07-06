@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import ccxt
 import yfinance as yf
-
+import pandas as pd
 
 class DataFetcher(ABC):
     """
@@ -74,6 +74,19 @@ class CcxtFetcher(DataFetcher):
             return None
 
     def fetch_data(self):
+        """
+        Fetches OHLCV (Open, High, Low, Close, Volume) data for a given symbol, timeframe, and limit.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing the fetched OHLCV data, with columns 'date', 'open', 'high', 'low', 'close', 'volume', 'tic', and 'day'.
+                             If an error occurs during the fetching process, returns None.
+
+        Raises:
+            ccxt.NetworkError: If a network error occurs while fetching the data.
+            ccxt.ExchangeError: If an exchange error occurs while fetching the data.
+            Exception: If any other error occurs during the fetching process.
+
+        """
         symbol = self.config[self.exchange_id].get('symbol', 'BTC/USDT')
         timeframe = self.config[self.exchange_id].get('timeframe', '1m')
         limit = self.config[self.exchange_id].get('limit', 100)
@@ -83,16 +96,25 @@ class CcxtFetcher(DataFetcher):
         try:
             ohlcv_data = self.exchange.fetch_ohlcv(symbol, timeframe, limit=limit)
             self.logger.info("Successfully fetched OHLCV data")
-            return ohlcv_data
+            df = pd.DataFrame(ohlcv_data, columns=['date', 'open', 'high', 'low', 'close', 'volume'])
+            df.date = pd.to_datetime(df.date, unit='ms')
+            df.insert(1, 'tic', symbol)
+            df['day'] = df['date'].dt.dayofweek
+            
+            return df
+        
         except ccxt.NetworkError as e:
             self.logger.error(f"Network error: {e}")
             self.exception = e
+
         except ccxt.ExchangeError as e:
             self.logger.error(f"Exchange error: {e}")
             self.exception = e
+
         except Exception as e:
             self.logger.error(f"An error occurred: {e}")
             self.exception = e
+            
         return None
 
 class YFinanceFetcher(DataFetcher):
